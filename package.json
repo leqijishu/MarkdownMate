@@ -1,0 +1,84 @@
+{
+  "name": "markdownmate",
+  "displayName": "Markdown Mate",
+  "description": "Markdown助手(Markdown Mate)",
+  "version": "1.0.0",
+  "publisher": "leqijishu",
+  "icon": "assets/images/icon.png",
+  "repository": {
+    "url": "https://github.com/leqijishu/MarkdownMate.git"
+  },
+  "engines": {
+    "vscode": "^1.103.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "onLanguage:markdown"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "markdown-mate.showPreviewToSide",
+        "title": "Preview to Side",
+        "category": "Markdown Mate"
+      }
+    ],
+    "keybindings": [
+      {
+        "command": "markdown-mate.showPreviewToSide",
+        "key": "Ctrl+Alt+P",
+        "when": "resourceExtname == .md"
+      }
+    ],
+    "menus": {
+      "editor/context": [
+        {
+          "command": "markdown-mate.showPreviewToSide",
+          "when": "resourceExtname == .md",
+          "group": "navigation@1"
+        }
+      ]
+    },
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "markdown-mate-container",
+          "title": "Markdown Mate",
+          "icon": "assets/images/icon-bar.png"
+        }
+      ]
+    },
+    "views": {
+      "markdown-mate-container": [
+        {
+          "id": "markdown-mate.cheatSheet",
+          "name": "Cheatsheet",
+          "type": "webview"
+        }
+      ]
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "build": "node -e \"require('child_process').execSync(`vsce package -o ./dist/markdownmate-${require('./package.json').version}.vsix`, {stdio:'inherit'})\"",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "pretest": "npm run compile && npm run lint",
+    "lint": "eslint src",
+    "test": "vscode-test"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.103.0",
+    "@types/mocha": "^10.0.10",
+    "@types/node": "22.x",
+    "@typescript-eslint/eslint-plugin": "^8.39.0",
+    "@typescript-eslint/parser": "^8.39.0",
+    "eslint": "^9.32.0",
+    "typescript": "^5.9.2",
+    "@vscode/test-cli": "^0.0.11",
+    "@vscode/test-electron": "^2.5.2"
+  }
+}
