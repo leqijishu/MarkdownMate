@@ -25,12 +25,28 @@
  */
 
 import * as vscode from 'vscode';
-import { registerPreview } from './main/preview';
-import { registerCheatSheet } from './main/cheatsheet';
+import path from 'path';
+import fs from 'fs';
 
-export function activate(context: vscode.ExtensionContext) {
-	registerPreview(context);
-	registerCheatSheet(context);
+export function registerCheatSheet(context: vscode.ExtensionContext) {
+    const provider = new (class implements vscode.WebviewViewProvider {
+        resolveWebviewView(
+            webviewView: vscode.WebviewView,
+            _context: vscode.WebviewViewResolveContext,
+            token: vscode.CancellationToken): Thenable<void> | void {
+            webviewView.webview.options = { enableScripts: true };
+            webviewView.webview.html = getHtml(context);
+        }
+    })();
+
+    const providerDisposable = vscode.window.registerWebviewViewProvider(
+        'markdown-mate.cheatSheet',
+        provider
+    );
+    context.subscriptions.push(providerDisposable);
 }
 
-export function deactivate() { }
+function getHtml(context: vscode.ExtensionContext): string {
+    const htmlPath = path.join(context.extensionPath, 'src', 'templates', 'cheatsheet.html');
+    return fs.readFileSync(htmlPath, 'utf-8');
+}

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <svg width="128" height="128" viewBox="0 0 128 128"
     xmlns="http://www.w3.org/2000/svg">
-  <circle cx="64" cy="64" r="56" fill="#ffffffe9" stroke="#10b981" stroke-width="16"/>
-  <path d="M108 108 L118 118" stroke="#0ea06fff" stroke-width="20" stroke-linecap="round"/>
-  <text x="66" y="88" font-size="62" font-weight="bold" 
+  <circle cx="64" cy="64" r="58" fill="#ffffffe9" stroke="#10b981" stroke-width="10"/>
+  <path d="M108 108 L118 118" stroke="#0ea06fff" stroke-width="16" stroke-linecap="round"/>
+  <text x="66" y="88" font-size="64" font-weight="normal" 
         text-anchor="middle" fill="#000000ae" font-family="Arial">MD</text>
 </svg>

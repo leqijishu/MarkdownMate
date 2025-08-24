@@ -1,0 +1,10 @@
+<svg width="128" height="128" viewBox="0 0 128 128" xmlns="http://www.w3.org/2000/svg">
+  <!-- MD text, bolded and enlarged for better icon visibility -->
+  <text x="16" y="85" font-family="sans-serif" font-size="66" font-weight="bold" fill="white">MD</text>
+
+  <!-- Magnifier lens, enlarged and with a thicker stroke, positioned to face the "MD" text -->
+  <circle cx="64" cy="64" r="60" stroke="white" stroke-width="7" fill="transparent"/>
+
+  <!-- Magnifier handle, extended and with a thicker stroke, extending from the lens -->
+  <line x1="110" y1="110" x2="124" y2="124" stroke="white" stroke-width="7" stroke-linecap="round"/>
+</svg>

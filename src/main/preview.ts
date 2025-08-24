@@ -25,12 +25,16 @@
  */
 
 import * as vscode from 'vscode';
-import { registerPreview } from './main/preview';
-import { registerCheatSheet } from './main/cheatsheet';
 
-export function activate(context: vscode.ExtensionContext) {
-	registerPreview(context);
-	registerCheatSheet(context);
+export function registerPreview(context: vscode.ExtensionContext) {
+    const cmd = vscode.commands.registerCommand(
+        'markdown-mate.showPreviewToSide',
+        () => {
+            const uri = vscode.window.activeTextEditor?.document.uri;
+            if (uri) {
+                vscode.commands.executeCommand('markdown.showPreviewToSide', uri);
+            }
+        }
+    );
+    context.subscriptions.push(cmd);
 }
-
-export function deactivate() { }
