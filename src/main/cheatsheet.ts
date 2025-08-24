@@ -25,8 +25,8 @@
  */
 
 import * as vscode from 'vscode';
-import path from 'path';
-import fs from 'fs';
+import * as path from 'path';
+import * as fs from 'fs';
 
 export function registerCheatSheet(context: vscode.ExtensionContext) {
     const provider = new (class implements vscode.WebviewViewProvider {
