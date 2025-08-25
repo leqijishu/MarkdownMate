@@ -2,7 +2,7 @@
   "name": "markdownmate",
   "displayName": "Markdown Mate",
   "description": "Markdown文档侧边实时预览效果，并可查看语法速查表。(Side preview & cheatsheet for Markdown)",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "publisher": "leqijishu",
   "icon": "assets/images/icon.png",
   "author": {
